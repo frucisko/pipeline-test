@@ -5,7 +5,7 @@ properties = null
 def loadProperties(path) {
     node {
         properties = readProperties file: path
-        echo "Immediate one ${properties['foo.dev']}"
+        echo "Immediate one ${properties['GOOGLE_CHROME_WEB_STORE_CLIENT_ID']}"
     }
 }
 
@@ -38,7 +38,7 @@ pipeline {
             steps {
                 configFileProvider([configFile(fileId: 'chrome-web-store-props', variable: 'PARAMS')]) {
                     loadProperties(env.PARAMS)
-                    echo "${properties['foo.dev']}"
+                    echo "${properties['GOOGLE_CHROME_WEB_STORE_CLIENT_ID']}"
                     sh "cat ${env.PARAMS}"
                     // sh 'printenv'
                 }
