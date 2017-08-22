@@ -14,6 +14,7 @@ pipeline {
     options {
         timestamps()
     }
+
     stages {
         stage('master branch') {
             when {
@@ -21,8 +22,6 @@ pipeline {
             }
             steps {
                 echo "master branch == ${env.BRANCH_NAME}"
-                echo "master branch == ${BRANCH}"
-                echo "master branch == ${BRANCH_NAME}"
             }
         }
 
@@ -31,9 +30,7 @@ pipeline {
                 branch 'dev'
             }
             steps {
-                echo "dev branch == ${env.BRANCH_NAME}"
-                echo "dev branch == ${BRANCH}"
-                echo "dev branch == ${BRANCH_NAME}"
+                echo "dev branch = ${env.BRANCH_NAME}"
             }
         }
 
