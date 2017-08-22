@@ -10,7 +10,12 @@ def loadProperties(path) {
 }
 
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'node:8-alpine'
+        }
+    }
+
     options {
         timestamps()
     }
@@ -21,6 +26,7 @@ pipeline {
                 branch 'master'
             }
             steps {
+                sh 'node -v'
                 echo "master branch = ${env.BRANCH_NAME}"
             }
         }
@@ -46,5 +52,3 @@ pipeline {
         }
     }
 }
-3
-,
