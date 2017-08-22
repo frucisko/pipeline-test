@@ -21,7 +21,7 @@ pipeline {
                 branch 'master'
             }
             steps {
-                echo "master branch == ${env.BRANCH_NAME}"
+                echo "master branch = ${env.BRANCH_NAME}"
             }
         }
 
