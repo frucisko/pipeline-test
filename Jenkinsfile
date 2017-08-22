@@ -20,7 +20,7 @@ pipeline {
                 branch 'master'
             }
             steps {
-                echo 'master branch'
+                echo 'master branch == ${branch}'
             }
         }
 
@@ -29,7 +29,7 @@ pipeline {
                 branch 'dev'
             }
             steps {
-                echo 'dev branch'
+                echo 'dev branch == ${branch}'
             }
         }
 
