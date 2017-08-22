@@ -20,7 +20,11 @@ pipeline {
                 branch 'master'
             }
             steps {
-                echo "master branch == ${branch}"
+                echo "master branch == ${env.BRANCH}"
+                echo "master branch == ${env.BRANCH_NAME}"
+                echo "master branch == ${env.getEnvironment()}"
+                echo "master branch == ${BRANCH}"
+                echo "master branch == ${BRANCH_NAME}"
             }
         }
 
