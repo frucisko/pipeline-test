@@ -2,8 +2,6 @@
 
 pipeline {
     agent any
-    def configFile = 'chrome-web-store-props'
-
     stages {
         stage('Example') {
             steps {
@@ -13,7 +11,7 @@ pipeline {
 
         stage('configFile Plugin') {
             steps {
-                configFileProvider([configFile(fileId: configFileProvider, variable: 'PARAMS')]) {
+                configFileProvider([configFile(fileId: 'chrome-web-store-props', variable: 'PARAMS')]) {
                     echo " =========== ^^^^^^^^^^^^ Reading config from pipeline script "
                     sh "cat ${env.PARAMS}"
                     echo " =========== ~~~~~~~~~~~~ ============ "
