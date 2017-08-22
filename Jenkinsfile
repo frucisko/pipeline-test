@@ -26,7 +26,7 @@ pipeline {
 
         stage('build') {
             steps {
-                configFileProvider([configFile(fileId: 'chrome-web-store-props', variable: 'PARAMS')]) {
+                configFileProvider([configFile(fileId: 'chrome-web-store-props', target: 'config', variable: 'PARAMS')]) {
                     loadProperties(env.PARAMS)
                     echo "${properties['foo.dev']}"
                     sh "cat ${env.PARAMS}"
