@@ -39,7 +39,6 @@ pipeline {
                 configFileProvider([configFile(fileId: 'chrome-web-store-props', variable: 'PARAMS')]) {
                     loadProperties(env.PARAMS)
                     echo "${properties['foo.dev']}"
-                    sh "cat ${env.PARAMS}"
                     sh 'printenv'
                 }
             }
