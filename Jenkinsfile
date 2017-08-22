@@ -33,7 +33,11 @@ pipeline {
                 branch 'dev'
             }
             steps {
-                echo 'dev branch == ${branch}'
+                echo "dev branch == ${env.BRANCH}"
+                echo "dev branch == ${env.BRANCH_NAME}"
+                echo "dev branch == ${env.getEnvironment()}"
+                echo "dev branch == ${BRANCH}"
+                echo "dev branch == ${BRANCH_NAME}"
             }
         }
 
