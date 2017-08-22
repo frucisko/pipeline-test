@@ -1,4 +1,4 @@
-#!groovy
+#!/usr/bin/env groovy
 
 properties = null
 
@@ -18,7 +18,7 @@ pipeline {
     stages {
         stage('master branch') {
             when {
-                branch 'master' || branch 'dev'
+                branch 'master'
             }
             steps {
                 echo "master branch = ${env.BRANCH_NAME}"
@@ -46,3 +46,5 @@ pipeline {
         }
     }
 }
+3
+,
