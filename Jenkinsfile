@@ -1,5 +1,14 @@
 #!groovy
 
+properties = null
+
+def loadProperties(path) {
+    node {
+        properties = readProperties file: path
+        echo "Immediate one ${properties.foo.dev}"
+    }
+}
+
 pipeline {
     agent any
     options {
@@ -11,15 +20,15 @@ pipeline {
                 branch 'master'
             }
             steps {
-                echo 'Hello World'
+                echo 'master branch'
             }
         }
 
         stage('build') {
             steps {
                 configFileProvider([configFile(fileId: 'chrome-web-store-props', variable: 'PARAMS')]) {
-                    def props = readProperties file: ${env.PARAMS}
-                    echo '${props.foo.dev}'
+                    loadProperties(${env.PARAMS})
+                    echo '${properties.foo.dev}'
                     sh "cat ${env.PARAMS}"
                 }
             }
