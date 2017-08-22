@@ -9,12 +9,10 @@ pipeline {
             }
         }
 
-        stage('configFile Plugin') {
+        stage('build') {
             steps {
                 configFileProvider([configFile(fileId: 'chrome-web-store-props', variable: 'PARAMS')]) {
-                    echo " =========== ^^^^^^^^^^^^ Reading config from pipeline script "
                     sh "cat ${env.PARAMS}"
-                    echo " =========== ~~~~~~~~~~~~ ============ "
                 }
             }
         }
