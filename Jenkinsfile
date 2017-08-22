@@ -40,6 +40,7 @@ pipeline {
                     loadProperties(env.PARAMS)
                     echo "${properties['foo.dev']}"
                     sh "cat ${env.PARAMS}"
+                    sh 'printenv'
                 }
             }
         }
