@@ -20,9 +20,7 @@ pipeline {
                 branch 'master'
             }
             steps {
-                echo "master branch == ${env.BRANCH}"
                 echo "master branch == ${env.BRANCH_NAME}"
-                echo "master branch == ${env.getEnvironment()}"
                 echo "master branch == ${BRANCH}"
                 echo "master branch == ${BRANCH_NAME}"
             }
@@ -33,9 +31,7 @@ pipeline {
                 branch 'dev'
             }
             steps {
-                echo "dev branch == ${env.BRANCH}"
                 echo "dev branch == ${env.BRANCH_NAME}"
-                echo "dev branch == ${env.getEnvironment()}"
                 echo "dev branch == ${BRANCH}"
                 echo "dev branch == ${BRANCH_NAME}"
             }
