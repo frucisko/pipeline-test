@@ -18,7 +18,7 @@ pipeline {
     stages {
         stage('master branch') {
             when {
-                branch 'master'
+                branch 'master' || branch 'dev'
             }
             steps {
                 echo "master branch = ${env.BRANCH_NAME}"
